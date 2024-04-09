@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+# Inspired on https://github.com/adriancooney/Taskfile
+#
+# Install an alias, to be able to simply execute `run`
+# echo 'alias run=./scripts/run' >> ~/.aliases
+#
+# Define Docker Compose command prefix...
+set -e
+
+export WWWUSER=$UID
+export WWWGROUP=$(id -g)
+
+function help {
+    echo "$0 <task> <args>"
+    echo "Tasks:"
+    compgen -A function | cat -n
+}
+
+function default {
+    help
+}
+
+function deploy {
+    npm run docs:build
+
+    TAG=ghcr.io/ijpatricio/mingle-docs
+    SPACE=mingle-docs
+
+    source ./.env
+    echo "Deploying to $DEPLOY_SERVER"
+    ssh root@$DEPLOY_SERVER """
+    mkdir -p spaces
+    """
+    scp -r ./.alfredo/space/docker-compose.yml root@$DEPLOY_SERVER:spaces/$SPACE
+    docker buildx build -f ./.alfredo/runtime/Dockerfile --platform linux/amd64 --tag $TAG --load .
+    docker save $TAG | ssh root@$DEPLOY_SERVER 'docker load'
+    ssh root@$DEPLOY_SERVER """
+    cd spaces/$SPACE
+    docker compose up -d --remove-orphans
+    """
+}
+
+TIMEFORMAT="Task completed in %3lR"
+time "${@:-default}"
