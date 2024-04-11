@@ -21,20 +21,45 @@ function default {
     help
 }
 
-function deploy {
-    npm run docs:build
-
+function deploy:migle-docs {
+    source ./.env
     TAG=ghcr.io/ijpatricio/mingle-docs
     SPACE=mingle-docs
 
-    source ./.env
     echo "Deploying to $DEPLOY_SERVER"
+    npm run docs:build
     ssh root@$DEPLOY_SERVER """
     mkdir -p spaces
     """
-    scp -r ./.alfredo/space/docker-compose.yml root@$DEPLOY_SERVER:spaces/$SPACE
+    scp -r ./.alfredo/spaces/$SPACE/docker-compose.yml root@$DEPLOY_SERVER:spaces/$SPACE
     docker buildx build -f ./.alfredo/runtime/Dockerfile --platform linux/amd64 --tag $TAG --load .
     docker save $TAG | ssh root@$DEPLOY_SERVER 'docker load'
+    ssh root@$DEPLOY_SERVER """
+    cd spaces/$SPACE
+    docker compose up -d --remove-orphans
+    """
+}
+
+function deploy:caddy {
+    source ./.env
+    SPACE=caddy
+
+    echo "Deploying to $DEPLOY_SERVER"
+    ssh root@$DEPLOY_SERVER "mkdir -p spaces/$SPACE"
+    rsync -avz --progress ./.alfredo/spaces/$SPACE/ root@$DEPLOY_SERVER:spaces/$SPACE
+    ssh root@$DEPLOY_SERVER """
+    cd spaces/$SPACE
+    docker compose up -d --remove-orphans
+    """
+}
+
+function deploy:wikijs {
+    source ./.env
+    SPACE=wikijs
+
+    echo "Deploying to $DEPLOY_SERVER"
+    ssh root@$DEPLOY_SERVER "mkdir -p spaces/$SPACE"
+    rsync -avz --progress ./.alfredo/spaces/$SPACE/ root@$DEPLOY_SERVER:spaces/$SPACE
     ssh root@$DEPLOY_SERVER """
     cd spaces/$SPACE
     docker compose up -d --remove-orphans
