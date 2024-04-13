@@ -3,23 +3,26 @@
 layout: home
 
 hero:
-  name: "MingleJS"
-  text: "Use React/Vue components in a Laravel Livewire Application"
-  tagline: My great project tagline
+  name: MingleJS
+  text: Livewire and JS, together at last
+  tagline: Use React/Vue components in Livewire
   actions:
     - theme: brand
-      text: Markdown Examples
+      text: Get started
       link: /markdown-examples
     - theme: alt
-      text: API Examples
+      text: View on GitHub
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - icon: 📈
+    title: Incremental Livewire Adoption
+    details: You already know React/Vue. Now you can use them in a Laravel Livewire application, as you're learning Livewire.
+  - icon: 🧩
+    title: Third Party Components
+    details: You found a big/complex/unique library in React/Vue that you want to use in your Laravel Livewire application.
+  - icon: 🔄
+    title: Hybrid Development
+    details: You have Livewire components, but you want to use React/Vue components in the same application.
 ---
 

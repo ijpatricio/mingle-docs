@@ -21,6 +21,10 @@ function default {
     help
 }
 
+function dev {
+    npm run docs:dev
+}
+
 function deploy:migle-docs {
     source ./.env
     TAG=ghcr.io/ijpatricio/mingle-docs
