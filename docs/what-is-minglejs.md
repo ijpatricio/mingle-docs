@@ -13,8 +13,8 @@ MingleJS renders a `div` on the server-side, and then mounts the React/Vue compo
 
 In the backend component, you can pass data that the component will have access to on the frontend.
 
-
-In addition, you get the server-side communcation of Livewire, meaning you get to make server requests just by `$wire.addTodo(todo)`. We'll get to that later. Find below a simple diagram of how MingleJS works in a page.
+You can choose to keep using Ajax client - Axios/Fetch/etc.
+But the reality is, for the most part, you can use the convenient way of making server actions, which is Livewire. You get to make server requests just by `$wire.addTodo(todo)`. Find below a simple diagram of how MingleJS works in a page.
 
 ![img_2.png](img_2.png)
 

@@ -16,11 +16,23 @@ export default defineConfig({
         text: 'Introduction',
         items: [
           { text: 'What is MingleJS?', link: '/what-is-minglejs' },
-          { text: 'Getting Started', link: '/getting-started' }
+          { text: 'Getting Started', link: '/getting-started' },
+          { text: 'Creating Mingles', link: '/creating-mingles.md' },
         ],
       },
-      { text: 'API Examples', link: '/api-examples' },
-      { text: 'MD Examples', link: '/markdown-examples' },
+      {
+        text: 'Digging Deeper',
+        items: [
+          { text: 'Anatomy of a Mingle', link: '/anatomy-of-a-mingle' },
+          { text: 'Manual Instructions', link: '/manual-instructions' },
+          { text: 'Configuration', link: '/configuration' },
+        ],
+      },
+
+
+      // { text: 'API Examples', link: '/api-examples' },
+      // { text: 'MD Examples', link: '/markdown-examples' },
+
     ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/ijpatricio/mingle' }
