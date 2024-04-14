@@ -8,12 +8,17 @@ hero:
   tagline: Use React/Vue components in Livewire
   actions:
     - theme: brand
-      text: Get started
-      link: /markdown-examples
+      text: What is MingleJS?
+      link: /what-is-minglejs
     - theme: alt
-      text: View on GitHub
-      link: /api-examples
-
+      text: Quickstart
+      link: /getting-started
+    - theme: alt
+      text: GitHub
+      link: https://github.com/ijpatricio/mingle
+  image:
+    src: logo-cover.png
+    alt: MingleJS
 features:
   - icon: 📈
     title: Incremental Livewire Adoption
@@ -23,6 +28,13 @@ features:
     details: You found a big/complex/unique library in React/Vue that you want to use in your Laravel Livewire application.
   - icon: 🔄
     title: Hybrid Development
-    details: You have Livewire components, but you want to use React/Vue components in the same application.
+    details: You have Livewire components, but you also want to use React/Vue. Maybe more people on the team are frontend-only developers.
 ---
 
+<style>
+.VPImage[alt="MingleJS"] {
+    border-radius: 12px;
+    margin: 20px; /* Set your desired margin */
+    box-shadow: 5px 5px 20px rgb(45 114 253); /* Adjust the shadow color and blur radius as needed */
+}
+</style>

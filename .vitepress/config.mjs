@@ -9,29 +9,21 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Guide', link: '/what-is-minglejs' },
     ],
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Introduction',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'What is MingleJS?', link: '/what-is-minglejs' },
+          { text: 'Getting Started', link: '/getting-started' }
         ],
       },
-      { text: 'Runtiming API Examples', link: '/api-examples' },
-      {
-        text: 'Foo Bar',
-        items: [
-          { text: 'Start', link: '/foo' },
-          { text: 'Foo Page', link: '/foo/paging' },
-        ]
-      },
+      { text: 'API Examples', link: '/api-examples' },
+      { text: 'MD Examples', link: '/markdown-examples' },
     ],
-
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/ijpatricio/mingle' }
     ]
   }
 })
