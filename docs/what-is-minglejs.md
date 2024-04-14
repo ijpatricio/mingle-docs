@@ -1,6 +1,6 @@
 # What is MingleJS?
 
-As you may already know, Livewire is a full-stack framework for Laravel that allows you to build dynamic interfaces using server-side code.
+As you may already know, [Livewire](https://livewire.laravel.com/) is a full-stack framework for [Laravel](https://laravel.com/) that allows you to build dynamic interfaces using server-side code.
 MingleJS allows you to use React/Vue components in your Livewire application, so you can use the best of both worlds.
 
 ## How is it working?
@@ -20,6 +20,10 @@ But the reality is, for the most part, you can use the convenient way of making 
 
 ## How do I use it?
 
-All you have to do is a regular Livewire component, with a little twist, so it can render JavaScript. Don't worry, there's a friendly command to create components for you. Find how to install and use MingleJS in the [Getting Started](/getting-started) page or jump right into the [Quickstart](/quickstart) page.
+All you have to do is a regular Livewire component, with a little twist, so it can render JavaScript.
+Most likely you will pair Livewire with just one taste of JS framework, but you can mix and match as you wish.
+
+Don't worry, there's a friendly command to create components for you.
+Find how to install and use MingleJS in the [Getting Started](/getting-started) page or jump right into the [Quickstart](/quickstart) page.
 
 

@@ -29,6 +29,9 @@ features:
   - icon: 🔄
     title: Hybrid Development
     details: You have Livewire components, but you also want to use React/Vue. Maybe more people on the team are frontend-only developers.
+  - icon: 🔥
+    title: Website Components
+    details: The market may offer page components for landing/marketing/ecommerce pages that are built in React/Vue.
 ---
 
 <style>
