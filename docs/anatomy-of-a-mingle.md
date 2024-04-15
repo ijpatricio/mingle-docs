@@ -65,7 +65,7 @@ The command will generate 2 files: one for the Mingle registration and another f
 
 - `resources/js/ChatApp/ChatApp.jsx`
 
-    Here we can define the Vue component. It's a regular component, we can now import sub-components, use Vue directives, etc.
+    Here we can define the React component. It's a regular component, we can now import sub-components, use Vue directives, etc.
     
     On initialization, we can retrieve `mingleData`. 
     Also, we use the `wire` to interact with the Livewire component.
