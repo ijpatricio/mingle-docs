@@ -24,6 +24,4 @@ All you have to do is a regular Livewire component, with a little twist, so it c
 Most likely you will pair Livewire with just one taste of JS framework, but you can mix and match as you wish.
 
 Don't worry, there's a friendly command to create components for you.
-Find how to install and use MingleJS in the [Getting Started](/getting-started) page or jump right into the [Quickstart](/quickstart) page.
-
-
+Find how to install and use MingleJS in the [Getting Started](/getting-started) page or jump right into the [Creating Mingles](/creating-mingles) page.

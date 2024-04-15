@@ -25,46 +25,21 @@ function dev {
     npm run docs:dev
 }
 
-function deploy:migle-docs {
+function deploy:mingle-docs {
     source ./.env
     TAG=ghcr.io/ijpatricio/mingle-docs
     SPACE=mingle-docs
 
     echo "Deploying to $DEPLOY_SERVER"
     npm run docs:build
-    ssh root@$DEPLOY_SERVER """
-    mkdir -p spaces
+    ssh -i /Users/joaopatricio/code/ijpatricio/reginald/ansible/keys/id_michael-scott alfredo@$DEPLOY_SERVER """
+    mkdir -p spaces/$SPACE
     """
-    scp -r ./.alfredo/spaces/$SPACE/docker-compose.yml root@$DEPLOY_SERVER:spaces/$SPACE
+
+    scp -i /Users/joaopatricio/code/ijpatricio/reginald/ansible/keys/id_michael-scott -r .alfredo/space/docker-compose.yml alfredo@$DEPLOY_SERVER:spaces/$SPACE
     docker buildx build -f ./.alfredo/runtime/Dockerfile --platform linux/amd64 --tag $TAG --load .
     docker save $TAG | ssh root@$DEPLOY_SERVER 'docker load'
-    ssh root@$DEPLOY_SERVER """
-    cd spaces/$SPACE
-    docker compose up -d --remove-orphans
-    """
-}
-
-function deploy:caddy {
-    source ./.env
-    SPACE=caddy
-
-    echo "Deploying to $DEPLOY_SERVER"
-    ssh root@$DEPLOY_SERVER "mkdir -p spaces/$SPACE"
-    rsync -avz --progress ./.alfredo/spaces/$SPACE/ root@$DEPLOY_SERVER:spaces/$SPACE
-    ssh root@$DEPLOY_SERVER """
-    cd spaces/$SPACE
-    docker compose up -d --remove-orphans
-    """
-}
-
-function deploy:wikijs {
-    source ./.env
-    SPACE=wikijs
-
-    echo "Deploying to $DEPLOY_SERVER"
-    ssh root@$DEPLOY_SERVER "mkdir -p spaces/$SPACE"
-    rsync -avz --progress ./.alfredo/spaces/$SPACE/ root@$DEPLOY_SERVER:spaces/$SPACE
-    ssh root@$DEPLOY_SERVER """
+    ssh -i /Users/joaopatricio/code/ijpatricio/reginald/ansible/keys/id_michael-scott alfredo@$DEPLOY_SERVER """
     cd spaces/$SPACE
     docker compose up -d --remove-orphans
     """
