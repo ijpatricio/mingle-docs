@@ -32,14 +32,14 @@ function deploy:mingle-docs {
 
     echo "Deploying to $DEPLOY_SERVER"
     npm run docs:build
-    ssh -i /Users/joaopatricio/code/ijpatricio/reginald/ansible/keys/id_michael-scott alfredo@$DEPLOY_SERVER """
+    ssh -i $SERVER_KEY alfredo@$DEPLOY_SERVER """
     mkdir -p spaces/$SPACE
     """
 
-    scp -i /Users/joaopatricio/code/ijpatricio/reginald/ansible/keys/id_michael-scott -r .alfredo/space/docker-compose.yml alfredo@$DEPLOY_SERVER:spaces/$SPACE
+    scp -i $SERVER_KEY -r .alfredo/space/docker-compose.yml alfredo@$DEPLOY_SERVER:spaces/$SPACE
     docker buildx build -f ./.alfredo/runtime/Dockerfile --platform linux/amd64 --tag $TAG --load .
     docker save $TAG | ssh root@$DEPLOY_SERVER 'docker load'
-    ssh -i /Users/joaopatricio/code/ijpatricio/reginald/ansible/keys/id_michael-scott alfredo@$DEPLOY_SERVER """
+    ssh -i $SERVER_KEY alfredo@$DEPLOY_SERVER """
     cd spaces/$SPACE
     docker compose up -d --remove-orphans
     """
