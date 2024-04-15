@@ -17,7 +17,7 @@ hero:
       text: GitHub
       link: https://github.com/ijpatricio/mingle
   image:
-    src: /logo-cover.png
+    src: /logo.jpg
     alt: MingleJS
 features:
   - icon: 📈

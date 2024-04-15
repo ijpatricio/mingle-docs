@@ -1,41 +1,57 @@
-import { defineConfig } from 'vitepress'
+import {defineConfig} from 'vitepress'
+
+const title = "MingleJS"
+const description = "Use JS components in Laravel Livewire Applications, with benefits."
+const url = 'https://minglejs.unitedbycode.com'
+const logoUrl = `${url}/logo.jpg`
+
+const head = [
+    ['meta', {name: 'twitter:title', content: title}],
+    ['meta', {name: 'twitter:description', content: description}],
+    ['meta', {name: 'twitter:image', content: logoUrl}],
+
+    ['meta', {name: 'og:title', content: title}],
+    ['meta', {name: 'og:description', content: description}],
+    ['meta', {name: 'og:image', content: logoUrl}],
+]
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "MingleJS",
-  description: "Use JS components in Laravel Livewire Applications, with benefits.",
-  srcDir: 'docs',
-  cleanUrls: true,
-  themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Guide', link: '/what-is-minglejs' },
-    ],
-    sidebar: [
-      {
-        text: 'Introduction',
-        items: [
-          { text: 'What is MingleJS?', link: '/what-is-minglejs' },
-          { text: 'Getting Started', link: '/getting-started' },
-          { text: 'Creating Mingles', link: '/creating-mingles.md' },
+    title,
+    description,
+    head,
+    srcDir: 'docs',
+    cleanUrls: true,
+    themeConfig: {
+        // https://vitepress.dev/reference/default-theme-config
+        nav: [
+            {text: 'Guide', link: '/what-is-minglejs'},
         ],
-      },
-      {
-        text: 'Digging Deeper',
-        items: [
-          { text: 'Anatomy of a Mingle', link: '/anatomy-of-a-mingle' },
-          { text: 'Manual Instructions', link: '/manual-instructions' },
-          { text: 'Configuration', link: '/configuration' },
+        sidebar: [
+            {
+                text: 'Introduction',
+                items: [
+                    {text: 'What is MingleJS?', link: '/what-is-minglejs'},
+                    {text: 'Getting Started', link: '/getting-started'},
+                    {text: 'Creating Mingles', link: '/creating-mingles.md'},
+                ],
+            },
+            {
+                text: 'Digging Deeper',
+                items: [
+                    {text: 'Anatomy of a Mingle', link: '/anatomy-of-a-mingle'},
+                    {text: 'Manual Instructions', link: '/manual-instructions'},
+                    {text: 'Configuration', link: '/configuration'},
+                ],
+            },
+
+
+            // { text: 'API Examples', link: '/api-examples' },
+            // { text: 'MD Examples', link: '/markdown-examples' },
+
         ],
-      },
-
-
-      // { text: 'API Examples', link: '/api-examples' },
-      // { text: 'MD Examples', link: '/markdown-examples' },
-
-    ],
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/ijpatricio/mingle' }
-    ]
-  }
+        socialLinks: [
+            {icon: 'github', link: 'https://github.com/ijpatricio/mingle'}
+        ]
+    }
 })
