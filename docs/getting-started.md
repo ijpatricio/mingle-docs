@@ -35,7 +35,7 @@ npm i @vitejs/plugin-react react react-dom
 
 
 ::: warning
-It's a good idea to commit your Git changes before proceeding. If anything goes wrong, you can always revert to the last commit.
+It's a good idea to commit your Git changes before proceeding. If anything goes wrong, you can always revert the changes.
 :::
 
 We're now ready to make the significant changes to the project files. If you want to make them manually, check [Manual Instructions](manual-instructions.md). For an automated attempt, run:
