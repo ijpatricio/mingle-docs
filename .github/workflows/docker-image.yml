@@ -17,39 +17,43 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Prepare SSH connections for deployment
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.DEPLOY_PVT_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -p 22 ${{ secrets.DEPLOY_SERVER }} >> ~/.ssh/known_hosts
+      - name: Prepare SSH connections for deployment
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_PVT_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p 22 ${{ secrets.DEPLOY_SERVER }} >> ~/.ssh/known_hosts
 
-    - name: do stuff on the remote
-      run: |
-        ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
-          ls -alh
-        '''
-        ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
-          cd ~/spaces/${{ env.space }}
-        '''
+      - name: do stuff on the remote
+        run: |
+          ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
+            ls -alh
+          '''
+          ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
+            cd ~/spaces/${{ env.space }}
+          '''
 
-    - name: Set up environment variables for later
-      run: |
-        echo "SHA_SHORT=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
+      - name: Set up environment variables for later
+        run: |
+          echo "SHA_SHORT=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
 
-    - name: Build and push the Docker image
-      run: |
-        npm install
-        npm run docs:build
-        docker build . --file .alfredo/runtime/Dockerfile --tag ${{ env.image }}:$SHA_SHORT
+      - name: Build and push the Docker image
+        run: |
+          npm install
+          npm run docs:build
+          docker build . --file .alfredo/runtime/Dockerfile --tag ${{ env.image }}:$SHA_SHORT
 
-    - name: Deploy the new image
-      run: |
+      - name: Deploy the new image
+        run: |
           docker save ${{ env.image }}:$SHA_SHORT | ssh \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} \
             'docker load'
+          
+          scp .alfredo/space/docker-compose.yml \
+            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }}:spaces/${{ env.space }}
+          
           ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
             docker tag ${{ env.image }}:${{ env.SHA_SHORT }} ${{ env.image }}:latest
             cd ~/spaces/${{ env.space }}
