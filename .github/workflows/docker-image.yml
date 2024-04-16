@@ -28,10 +28,10 @@ jobs:
 
     - name: do stuff on the remote
       run: |
-        ssh ${{ secrets.DEPLOY_KEY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
+        ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
           ls -alh
         '''
-        ssh ${{ secrets.DEPLOY_KEY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
+        ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
           cd ~/spaces/${{ env.space }}
         '''
 
@@ -48,9 +48,9 @@ jobs:
     - name: Deploy the new image
       run: |
           docker save ${{ env.image }}:$SHA_SHORT | ssh \
-            ${{ secrets.DEPLOY_KEY_USER }}@${{ secrets.DEPLOY_SERVER }} \
+            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} \
             'docker load'
-          ssh ${{ secrets.DEPLOY_KEY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
+          ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
             docker tag ${{ env.image }}:${{ env.SHA_SHORT }} ${{ env.image }}:latest
             cd ~/spaces/${{ env.space }}
             docker compose up -d --remove-orphans
