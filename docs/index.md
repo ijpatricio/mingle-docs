@@ -11,6 +11,9 @@ hero:
       text: What is MingleJS?
       link: /what-is-minglejs
     - theme: alt
+      text: Visit Demo
+      link: https://minglejs-demo.unitedbycode.com
+    - theme: alt
       text: Quickstart
       link: /getting-started
     - theme: alt
