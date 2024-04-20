@@ -35,6 +35,7 @@ export default defineConfig({
                 text: 'Introduction',
                 items: [
                     {text: 'What is MingleJS?', link: '/what-is-minglejs'},
+                    {text: 'Why MingleJS?', link: '/why-minglejs'},
                     {text: 'Getting Started', link: '/getting-started'},
                     {text: 'Creating Mingles', link: '/creating-mingles.md'},
                 ],
