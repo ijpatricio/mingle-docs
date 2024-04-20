@@ -27,6 +27,8 @@ export default defineConfig({
         nav: [
             {text: 'Guide', link: '/what-is-minglejs'},
             {text: 'Demo', link: 'https://minglejs-demo.unitedbycode.com/demo-with-all'},
+            {text: 'Demo source code', link: 'https://github.com/ijpatricio/minglejs-demo'},
+
         ],
         sidebar: [
             {
@@ -49,6 +51,7 @@ export default defineConfig({
 
             // { text: 'API Examples', link: '/api-examples' },
             { text: 'Visit the demo', link: 'https://minglejs-demo.unitedbycode.com/demo-with-all' },
+            { text: 'Demo source code', link: 'https://github.com/ijpatricio/minglejs-demo' },
 
         ],
         socialLinks: [

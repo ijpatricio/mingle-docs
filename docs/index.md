@@ -11,14 +11,14 @@ hero:
       text: What is MingleJS?
       link: /what-is-minglejs
     - theme: alt
-      text: Visit Demo
-      link: https://minglejs-demo.unitedbycode.com
-    - theme: alt
       text: Quickstart
       link: /getting-started
     - theme: alt
-      text: GitHub
-      link: https://github.com/ijpatricio/mingle
+      text: Visit Demo
+      link: https://minglejs-demo.unitedbycode.com
+    - theme: alt
+      text: Demo GitHub
+      link: https://github.com/ijpatricio/minglejs-demo
   image:
     src: /logo.jpg
     alt: MingleJS
