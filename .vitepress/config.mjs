@@ -26,6 +26,7 @@ export default defineConfig({
         // https://vitepress.dev/reference/default-theme-config
         nav: [
             {text: 'Guide', link: '/what-is-minglejs'},
+            {text: 'Demo', link: 'https://minglejs-demo.unitedbycode.com/demo-with-all'},
         ],
         sidebar: [
             {
@@ -47,7 +48,7 @@ export default defineConfig({
 
 
             // { text: 'API Examples', link: '/api-examples' },
-            // { text: 'MD Examples', link: '/markdown-examples' },
+            { text: 'Visit the demo', link: 'https://minglejs-demo.unitedbycode.com/demo-with-all' },
 
         ],
         socialLinks: [
