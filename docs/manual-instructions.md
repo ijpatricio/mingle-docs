@@ -68,5 +68,8 @@ Add the stack `scripts` on the head of the document.
     (...)
 ```
 
+::: tip 
+If you're using Layout Components, e.g. `<x-app-layout>`, you can add the stack on the component itself.
+:::
 
 
