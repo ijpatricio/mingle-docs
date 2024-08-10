@@ -7,7 +7,7 @@ In this page, we'll cover the manual changes we have to make on the project file
 - We need to import `path`, and `vue` (if you choose to use Vue)
 - We need to define the alias for the Mingle resources, since it's inside `vendor`, not `node_modules`.
 
-```js{3,4,7-11,13-20}
+```js{3-5,8-12,14-21}
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin'
 import react from '@vitejs/plugin-react'
@@ -54,7 +54,7 @@ On:
 
 Add the stack `scripts` on the head of the document.
 
-```html{8}
+```html{8,10}
     (...)
         
         <!-- Fonts -->
@@ -63,7 +63,7 @@ Add the stack `scripts` on the head of the document.
 
         <!-- Scripts -->
         @stack('scripts')
-        {{-- If you're using React --}}
+        <!-- If you're using React -->
         @viteReactRefresh
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
