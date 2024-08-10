@@ -2,9 +2,12 @@
 
 For Filament, we have to register a hook, so it enables the `viteReactRefresh` plugin.
 
-Check below the example on the Filament DemoReact page.
+This is only needed while `npm run dev` is running. After a `npm run build`, the hook is not needed anymore.
+So, consider applying only when in local development.
 
-```php {6-8,18-21}
+Check below the example(s) on the Filament DemoReact page.
+
+```php {6-8,18-23}
 <?php
 
 namespace App\Filament\Filament\Pages;
@@ -22,11 +25,12 @@ class DemoReact extends Page
 
     public function mount()
     {
-        FilamentView::registerRenderHook(
-            name: PanelsRenderHook::HEAD_START,
-            hook: fn() => app(Vite::class)->reactRefresh(),
-        );
+        if (app()->environment('local')) {
+            FilamentView::registerRenderHook(
+                name: PanelsRenderHook::HEAD_START,
+                hook: fn() => app(Vite::class)->reactRefresh(),
+            );
+        }
     }
 }
-
 ```
