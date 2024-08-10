@@ -10,6 +10,7 @@ In this page, we'll cover the manual changes we have to make on the project file
 ```js{3,4,7-11,13-20}
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin'
+import react from '@vitejs/plugin-react'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
@@ -20,6 +21,7 @@ export default defineConfig({
         },
     },
     plugins: [
+        react(),
         vue({
             template: {
                 transformAssetUrls: {
@@ -61,6 +63,8 @@ Add the stack `scripts` on the head of the document.
 
         <!-- Scripts -->
         @stack('scripts')
+        {{-- If you're using React --}}
+        @viteReactRefresh
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
