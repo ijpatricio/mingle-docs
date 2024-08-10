@@ -44,6 +44,8 @@ export default defineConfig({
                 text: 'Digging Deeper',
                 items: [
                     {text: 'Anatomy of a Mingle', link: '/anatomy-of-a-mingle'},
+                    {text: 'Anatomy - Vue specifics', link: '/anatomy-vue-specifics'},
+                    {text: 'Anatomy - React specifics', link: '/anatomy-react-specifics'},
                     {text: 'Manual Instructions', link: '/manual-instructions'},
                     {text: 'Auto Import on Build', link: '/auto-import-on-build'},
                     {text: 'Configuration', link: '/configuration'},
