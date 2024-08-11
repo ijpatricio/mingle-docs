@@ -47,6 +47,7 @@ export default defineConfig({
                     {text: 'Anatomy - Vue specifics', link: '/anatomy-vue-specifics'},
                     {text: 'Anatomy - React specifics', link: '/anatomy-react-specifics'},
                     {text: 'Manual Instructions', link: '/manual-instructions'},
+                    {text: 'Events and Backend', link: '/events-and-backend'},
                     {text: 'Filament & React', link: '/filament-and-react'},
                     {text: 'Auto Import on Build', link: '/auto-import-on-build'},
                     {text: 'Configuration', link: '/configuration'},
