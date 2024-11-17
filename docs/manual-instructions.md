@@ -61,10 +61,10 @@ Add the stack `scripts` on the head of the document.
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <!-- If you're using React (before the `stack`) -->
+        @viteReactRefresh
         <!-- Scripts -->
         @stack('scripts')
-        <!-- If you're using React -->
-        @viteReactRefresh
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
