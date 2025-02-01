@@ -44,7 +44,7 @@ export default defineConfig({
 
 ## Layout files
 
-On every layout where we want to use Mingle, we need to include the `stack` so that Mingle can inject the necessary scripts.
+On every layout where we want to use Mingle, we need to include the Blade directive `@mingles` so that Mingle can inject the necessary scripts.
 
 On:
 
@@ -52,7 +52,7 @@ On:
 - `resources/views/layouts/app.blade.php`
 - Or any other layout you might have
 
-Add the stack `scripts` on the head of the document.
+Add the Blade directive `@mingles` on the head of the document.
 
 ```html{8,10}
     (...)
@@ -61,10 +61,8 @@ Add the stack `scripts` on the head of the document.
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- If you're using React (before the `stack`) -->
-        @viteReactRefresh
         <!-- Scripts -->
-        @stack('scripts')
+        @mingles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
