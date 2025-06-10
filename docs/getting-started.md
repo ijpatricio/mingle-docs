@@ -44,7 +44,7 @@ We're now ready to make the significant changes to the project files. If you wan
 php artisan mingle:install --with-demo
 ```
 
-Of if it's not your first time, you can skip the demo:
+Or if it's not your first time, you can skip the demo:
 
 ```bash
 php artisan mingle:install
