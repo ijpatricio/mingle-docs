@@ -29,10 +29,8 @@ jobs:
 
       - name: do stuff on the remote
         run: |
-          ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
+          ssh -i ~/.ssh/id_ed25519 ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
             ls -alh
-          '''
-          ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} '''
             cd ~/spaces/${{ env.space }}
           '''
 
