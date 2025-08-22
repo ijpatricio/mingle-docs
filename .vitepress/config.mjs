@@ -6,6 +6,14 @@ const url = 'https://minglejs.unitedbycode.com'
 const logoUrl = `${url}/logo.jpg`
 
 const head = [
+    [
+        'script',
+        {
+            defer: true,
+            src: "https://analytics.ntrpnt.com/script.js",
+            'data-website-id': "d4d98fb1-127b-414c-9495-d7947c8e2b2b"
+        },
+    ],
     ['meta', {name: 'twitter:title', content: title}],
     ['meta', {name: 'twitter:description', content: description}],
     ['meta', {name: 'twitter:image', content: logoUrl}],
