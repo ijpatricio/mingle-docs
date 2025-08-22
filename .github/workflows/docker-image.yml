@@ -46,9 +46,9 @@ jobs:
 
       - name: Deploy the new image
         run: |
-          docker save ${{ env.image }}:$SHA_SHORT | ssh \
+          docker save ${{ env.image }}:$SHA_SHORT | gzip | ssh \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }} \
-            'docker load'
+            'gunzip | docker load'
           
           scp .alfredo/space/docker-compose.yml \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_SERVER }}:spaces/${{ env.space }}
